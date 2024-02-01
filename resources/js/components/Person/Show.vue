@@ -3,10 +3,10 @@
         <router-link :to="{name: 'person.edit', params:{id:person.id}}">Edit</router-link>
 
         <div>
-            Name : {{ this.person.name }}
+            Name : {{ person.name }}
         </div>
         <div>
-            Age : {{ this.person.age }}
+            Age : {{ person.age }}
         </div>
     </div>
 
@@ -16,16 +16,9 @@
     import axios from "axios";
 
     export default {
-        data(){
-            return{
-                person:{
-                    name: null,
-                    age: null,
-                },
-            }
-        },
+
         mounted() {
-            this.getPerson()
+            this.$store.dispatch('getPerson', this.$route.params.id)
         },
         methods:{
             getPerson() {
@@ -35,6 +28,11 @@
                         this.person = res.data.data
                     })
             },
+        },
+        computed:{
+            person(){
+                return this.$store.getters.person;
+            }
         }
     }
 </script>

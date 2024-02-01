@@ -16,6 +16,7 @@
         "vue": "^3.2.37"
     },
     "dependencies": {
-        "vue-router": "^4.2.5"
+        "vue-router": "^4.2.5",
+        "vuex": "^4.0.2"
     }
 }

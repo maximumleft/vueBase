@@ -6,6 +6,7 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
+import store from './store'
 import router from "@/router.js";
 import Index from "@/components/Index.vue";
 
@@ -17,6 +18,7 @@ import Index from "@/components/Index.vue";
 
 const app = createApp({});
 app.use(router)
+app.use(store)
 app.component('index',Index)
 
 /**
